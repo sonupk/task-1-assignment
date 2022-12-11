@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const ObjectId=mongoose.Schema.Types.ObjectId
+
 const sub=["math","hindi","english",]
 const studentSchema=new mongoose.Schema({
     name:String,

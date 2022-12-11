@@ -9,7 +9,7 @@ const { findOneAndUpdate, findOne } = require("../model/studentModel");
 
 const createUser = async function (req, res) {
     try {
-
+         const data=req.body
         console.log(Object.keys(data).length == 0)
         if (Object.keys(data).length == 0) {
             return res.status(404).send({ status: false, message: "data must be in body" })
@@ -87,7 +87,8 @@ const logInUser = async function (req, res) {
         const token = jwt.sign({ userName: getUser.userName }, "backendTaskWithAshishTripathi");
 
 
-        const studentlist = await studentSchema.find({ user: userName, isDeleted: false }).select({ _id: 0, isDeleted: 0, user: 0 }).sort({ name: 1 })
+        const studentlist = await studentSchema.find({ user: userName, isDeleted: false }).select({ _id: 0, isDeleted: 0, user: 0, _id: 0, createdAt: 0, updatedAt: 0,__v:0 }).sort({ name: 1 })
+
         return res.status(200).send({ status: true, message: studentlist, token: token })
 
         //  return  res.status(200).send({status:true,message:token}) 
@@ -111,8 +112,6 @@ const addStudent = async function (req, res) {
         }
 
         const { name, subject, marks } = data
-
-
 
         if (!name) {
             return res.status(404).send({ status: false, message: "name must be in body" })
@@ -306,9 +305,6 @@ const deleteStudent = async function (req, res) {
         }
 
         const { name, subject} = data
-
-
-
         if (!name) {
             return res.status(404).send({ status: false, message: "name must be in body" })
         }
