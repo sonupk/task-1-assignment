@@ -4,8 +4,8 @@ const mid=require("../mid/mid")
 const router=express.Router()
 
 
-router.all("/*", (req, res) => 
-{ res.status(400).send({ status: false, message: "Endpoint is not correct plese provide a proper end-point" }) })
+// router.all("/*", (req, res) => 
+// { res.status(400).send({ status: false, message: "Endpoint is not correct plese provide a proper end-point" }) })
 
 
 router.post("/user/userCreate",user.createUser)
