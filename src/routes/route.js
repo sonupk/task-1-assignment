@@ -3,9 +3,9 @@ const user=require("../controller/userController")
 const mid=require("../mid/mid")
 const router=express.Router()
 
-router.get("/student",function(req,res){
-    res.send("I am ashish")
-})
+
+router.all("/*", (req, res) => 
+{ res.status(400).send({ status: false, message: "Endpoint is not correct plese provide a proper end-point" }) })
 
 
 router.post("/user/userCreate",user.createUser)

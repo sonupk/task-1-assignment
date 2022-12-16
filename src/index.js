@@ -5,7 +5,7 @@ const route=require("./routes/route")
 const app=express();
 
 app.use(express.json());
-mongoose.connect("mongodb+srv://Ashish_Tripathi29:Ashish555@cluster0.bxcrqqa.mongodb.net/BackendTask", {
+mongoose.connect("mongodb+srv://sonupk:1HivF6DXHWanVcYu@cluster0.vtjazgb.mongodb.net/Task1-DB", {
     useNewUrlParser: true
 })
     .then(()=> console.log("mongodb is connect"))
